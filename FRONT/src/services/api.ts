@@ -3,7 +3,7 @@ import { Book } from '../types/book';
 
 // Configuração da instância do Axios
 const api = axios.create({
-  baseURL: 'http://localhost:3100/apiBooksV1', // URL base da API
+  baseURL: 'http://15.228.11.48:3100/apiBooksV1', // URL base da API
   headers: {
     'Content-Type': 'application/json',
   },
