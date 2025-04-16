@@ -106,7 +106,7 @@ app.put("/apiBooksV1/livros/:id", (req, res) => {
     return;
   }
 
-  const { titulo, autor, anoPublicacao, disponibilidade } = req.body; // Obtém os dados do corpo da requisição
+  const { titulo, autor, anoPublicacao, disponibilidade, codigo } = req.body; // Obtém os dados do corpo da requisição
 
   if (!titulo && !autor && !anoPublicacao && disponibilidade === undefined) {
     res.status(400).send("Pelo menos um campo deve ser atualizado"); // Retorna erro se nenhum campo for fornecido para atualização
@@ -125,7 +125,8 @@ app.put("/apiBooksV1/livros/:id", (req, res) => {
     ...books[bookIndex], // Mantém os dados existentes
     ...(titulo !== undefined && { titulo }), // Atualiza o título, se fornecido
     ...(autor !== undefined && { autor }), // Atualiza o autor, se fornecido
-    ...(anoPublicacao !== undefined && { anoPublicacao }), // Atualiza o ano de publicação, se fornecido
+    ...(anoPublicacao !== undefined && { anoPublicacao }), // Atualiza o ano de publicação, se fornecido7
+    ...(codigo !== undefined && { codigo }), // Atualiza o codigo, se fornecido
     ...(disponibilidade !== undefined && { disponibilidade }), // Atualiza a disponibilidade, se fornecida
   };
 
